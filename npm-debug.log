@@ -1,0 +1,238 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', '-g', 'nodemon' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.32
+4 verbose cache add [ 'nodemon', null ]
+5 verbose cache add name=undefined spec="nodemon" args=["nodemon",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'nodemon',
+6 verbose parsed url   path: 'nodemon',
+6 verbose parsed url   href: 'nodemon' }
+7 silly lockFile 1625b929-nodemon nodemon
+8 verbose lock nodemon /Users/helenzeng/.npm/1625b929-nodemon.lock
+9 silly lockFile 1625b929-nodemon nodemon
+10 silly lockFile 1625b929-nodemon nodemon
+11 verbose addNamed [ 'nodemon', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile 4f5e51c6-nodemon nodemon@
+14 verbose lock nodemon@ /Users/helenzeng/.npm/4f5e51c6-nodemon.lock
+15 silly addNameRange { name: 'nodemon', range: '*', hasData: false }
+16 verbose registry.get https://registry.npmjs.org/nodemon not expired, no request
+17 silly addNameRange number 2 { name: 'nodemon', range: '*', hasData: true }
+18 silly addNameRange versions [ 'nodemon',
+18 silly addNameRange   [ '0.1.4',
+18 silly addNameRange     '0.1.5',
+18 silly addNameRange     '0.1.6',
+18 silly addNameRange     '0.1.7',
+18 silly addNameRange     '0.1.8',
+18 silly addNameRange     '0.2.0',
+18 silly addNameRange     '0.2.1',
+18 silly addNameRange     '0.2.2',
+18 silly addNameRange     '0.3.0',
+18 silly addNameRange     '0.3.1',
+18 silly addNameRange     '0.3.2',
+18 silly addNameRange     '0.4.0',
+18 silly addNameRange     '0.4.1',
+18 silly addNameRange     '0.5.0',
+18 silly addNameRange     '0.5.1',
+18 silly addNameRange     '0.5.2',
+18 silly addNameRange     '0.5.3',
+18 silly addNameRange     '0.5.4',
+18 silly addNameRange     '0.5.5',
+18 silly addNameRange     '0.5.6',
+18 silly addNameRange     '0.5.7',
+18 silly addNameRange     '0.6.0',
+18 silly addNameRange     '0.6.1',
+18 silly addNameRange     '0.6.2',
+18 silly addNameRange     '0.6.3',
+18 silly addNameRange     '0.6.4',
+18 silly addNameRange     '0.6.5',
+18 silly addNameRange     '0.6.6',
+18 silly addNameRange     '0.6.7',
+18 silly addNameRange     '0.6.8',
+18 silly addNameRange     '0.6.9',
+18 silly addNameRange     '0.6.10',
+18 silly addNameRange     '0.6.11',
+18 silly addNameRange     '0.6.12',
+18 silly addNameRange     '0.6.13',
+18 silly addNameRange     '0.6.14',
+18 silly addNameRange     '0.6.15',
+18 silly addNameRange     '0.6.16',
+18 silly addNameRange     '0.6.17',
+18 silly addNameRange     '0.6.18',
+18 silly addNameRange     '0.6.19',
+18 silly addNameRange     '0.6.20',
+18 silly addNameRange     '0.6.21',
+18 silly addNameRange     '0.6.22',
+18 silly addNameRange     '0.6.23',
+18 silly addNameRange     '0.7.0',
+18 silly addNameRange     '0.7.1',
+18 silly addNameRange     '0.7.2',
+18 silly addNameRange     '0.7.3',
+18 silly addNameRange     '0.7.4',
+18 silly addNameRange     '0.7.5',
+18 silly addNameRange     '0.7.6',
+18 silly addNameRange     '0.7.7',
+18 silly addNameRange     '0.7.8',
+18 silly addNameRange     '0.7.10',
+18 silly addNameRange     '0.9.0',
+18 silly addNameRange     '0.9.1',
+18 silly addNameRange     '0.9.2',
+18 silly addNameRange     '0.9.3',
+18 silly addNameRange     '0.9.5',
+18 silly addNameRange     '0.9.6',
+18 silly addNameRange     '0.9.7',
+18 silly addNameRange     '0.9.10',
+18 silly addNameRange     '0.9.11',
+18 silly addNameRange     '0.9.12',
+18 silly addNameRange     '0.9.14',
+18 silly addNameRange     '0.9.16',
+18 silly addNameRange     '0.9.17',
+18 silly addNameRange     '1.0.0',
+18 silly addNameRange     '1.0.1',
+18 silly addNameRange     '1.0.2',
+18 silly addNameRange     '1.0.2-rc',
+18 silly addNameRange     '0.6.10-a',
+18 silly addNameRange     '1.0.2-rc3',
+18 silly addNameRange     '1.0.2-rc4',
+18 silly addNameRange     '1.0.3',
+18 silly addNameRange     '1.0.4',
+18 silly addNameRange     '1.0.5',
+18 silly addNameRange     '1.0.6',
+18 silly addNameRange     '1.0.7',
+18 silly addNameRange     '1.0.8',
+18 silly addNameRange     '1.0.9',
+18 silly addNameRange     '1.0.10',
+18 silly addNameRange     '1.0.11',
+18 silly addNameRange     '1.0.12',
+18 silly addNameRange     '1.0.13',
+18 silly addNameRange     '1.0.14',
+18 silly addNameRange     '1.0.15',
+18 silly addNameRange     '1.0.16',
+18 silly addNameRange     '1.0.17-rc1',
+18 silly addNameRange     '1.0.17-rc2',
+18 silly addNameRange     '1.0.17',
+18 silly addNameRange     '1.0.18',
+18 silly addNameRange     '1.0.19',
+18 silly addNameRange     '1.0.20',
+18 silly addNameRange     '1.1.0-alpha',
+18 silly addNameRange     '1.1.0',
+18 silly addNameRange     '1.1.1',
+18 silly addNameRange     '1.2.0',
+18 silly addNameRange     '1.2.1',
+18 silly addNameRange     '1.3.0-0',
+18 silly addNameRange     '1.3.0-1',
+18 silly addNameRange     '1.3.0-2',
+18 silly addNameRange     '1.3.0-3',
+18 silly addNameRange     '1.3.0-4',
+18 silly addNameRange     '1.3.0-5',
+18 silly addNameRange     '1.3.0-6',
+18 silly addNameRange     '1.3.0-7',
+18 silly addNameRange     '1.3.0',
+18 silly addNameRange     '1.3.1',
+18 silly addNameRange     '1.3.2',
+18 silly addNameRange     '1.3.3',
+18 silly addNameRange     '1.3.5',
+18 silly addNameRange     '1.3.6' ] ]
+19 verbose addNamed [ 'nodemon', '1.3.6' ]
+20 verbose addNamed [ '1.3.6', '1.3.6' ]
+21 silly lockFile 8054e090-nodemon-1-3-6 nodemon@1.3.6
+22 verbose lock nodemon@1.3.6 /Users/helenzeng/.npm/8054e090-nodemon-1-3-6.lock
+23 silly lockFile 8054e090-nodemon-1-3-6 nodemon@1.3.6
+24 silly lockFile 8054e090-nodemon-1-3-6 nodemon@1.3.6
+25 silly lockFile 4f5e51c6-nodemon nodemon@
+26 silly lockFile 4f5e51c6-nodemon nodemon@
+27 silly resolved [ { name: 'nodemon',
+27 silly resolved     homepage: 'http://nodemon.io',
+27 silly resolved     author: { name: 'Remy Sharp', url: 'http://github.com/remy' },
+27 silly resolved     bin: { nodemon: './bin/nodemon.js' },
+27 silly resolved     engines: { node: '>=0.8' },
+27 silly resolved     repository: { type: 'git', url: 'http://github.com/remy/nodemon.git' },
+27 silly resolved     description: 'Simple monitor script for use during development of a node.js app.',
+27 silly resolved     keywords:
+27 silly resolved      [ 'monitor',
+27 silly resolved        'development',
+27 silly resolved        'restart',
+27 silly resolved        'autoload',
+27 silly resolved        'reload',
+27 silly resolved        'terminal' ],
+27 silly resolved     version: '1.3.6',
+27 silly resolved     preferGlobal: 'true',
+27 silly resolved     licenses: [ [Object] ],
+27 silly resolved     main: './lib/nodemon',
+27 silly resolved     scripts:
+27 silly resolved      { coverage: 'istanbul cover _mocha -- --timeout 30000 --ui bdd --reporter list test/**/*.test.js',
+27 silly resolved        ':test': 'mocha --timeout 30000 --ui bdd test/**/*.test.js',
+27 silly resolved        test: 'for FILE in test/**/*.test.js; do echo $FILE; ./node_modules/.bin/mocha --timeout 30000 $FILE; if [ $? -ne 0 ]; then exit 1; fi; sleep 1; done',
+27 silly resolved        web: 'node web' },
+27 silly resolved     devDependencies:
+27 silly resolved      { 'coffee-script': '~1.7.1',
+27 silly resolved        connect: '~2.19.1',
+27 silly resolved        istanbul: '~0.2.10',
+27 silly resolved        mocha: '^2.0.1',
+27 silly resolved        should: '~4.0.0' },
+27 silly resolved     dependencies:
+27 silly resolved      { minimatch: '~0.3.0',
+27 silly resolved        'ps-tree': '~0.0.3',
+27 silly resolved        touch: '~0.0.3',
+27 silly resolved        'update-notifier': '^0.3.0' },
+27 silly resolved     gitHead: '53587d738041b88c128e2490b8e44c4eb18b3fdc',
+27 silly resolved     bugs: { url: 'https://github.com/remy/nodemon/issues' },
+27 silly resolved     _id: 'nodemon@1.3.6',
+27 silly resolved     _shasum: 'c4d5e43dd797792a8291efd130de02e5520c4998',
+27 silly resolved     _from: 'nodemon@',
+27 silly resolved     _npmVersion: '1.4.28',
+27 silly resolved     _npmUser: { name: 'remy', email: 'remy@remysharp.com' },
+27 silly resolved     maintainers: [ [Object] ],
+27 silly resolved     dist:
+27 silly resolved      { shasum: 'c4d5e43dd797792a8291efd130de02e5520c4998',
+27 silly resolved        tarball: 'http://registry.npmjs.org/nodemon/-/nodemon-1.3.6.tgz' },
+27 silly resolved     directories: {},
+27 silly resolved     _resolved: 'https://registry.npmjs.org/nodemon/-/nodemon-1.3.6.tgz',
+27 silly resolved     readme: 'ERROR: No README data found!' } ]
+28 info install nodemon@1.3.6 into /usr/local/lib
+29 info installOne nodemon@1.3.6
+30 verbose lib/node_modules/nodemon unbuild
+31 verbose tar unpack /Users/helenzeng/.npm/nodemon/1.3.6/package.tgz
+32 silly lockFile 15c6d46c-r-local-lib-node-modules-nodemon tar:///usr/local/lib/node_modules/nodemon
+33 verbose lock tar:///usr/local/lib/node_modules/nodemon /Users/helenzeng/.npm/15c6d46c-r-local-lib-node-modules-nodemon.lock
+34 silly lockFile cc46407e-ng-npm-nodemon-1-3-6-package-tgz tar:///Users/helenzeng/.npm/nodemon/1.3.6/package.tgz
+35 verbose lock tar:///Users/helenzeng/.npm/nodemon/1.3.6/package.tgz /Users/helenzeng/.npm/cc46407e-ng-npm-nodemon-1-3-6-package-tgz.lock
+36 silly gunzTarPerm modes [ '755', '644' ]
+37 error Error: EACCES, mkdir '/usr/local/lib/node_modules/nodemon'
+37 error  { [Error: EACCES, mkdir '/usr/local/lib/node_modules/nodemon']
+37 error   errno: 3,
+37 error   code: 'EACCES',
+37 error   path: '/usr/local/lib/node_modules/nodemon',
+37 error   fstream_type: 'Directory',
+37 error   fstream_path: '/usr/local/lib/node_modules/nodemon',
+37 error   fstream_class: 'DirWriter',
+37 error   fstream_stack:
+37 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23',
+37 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53',
+37 error      'Object.oncomplete (fs.js:107:15)' ] }
+38 error Please try running this command again as root/Administrator.
+39 error System Darwin 14.0.0
+40 error command "node" "/usr/local/bin/npm" "install" "-g" "nodemon"
+41 error cwd /Users/helenzeng/Documents/mean-chirp
+42 error node -v v0.10.32
+43 error npm -v 1.4.28
+44 error path /usr/local/lib/node_modules/nodemon
+45 error fstream_path /usr/local/lib/node_modules/nodemon
+46 error fstream_type Directory
+47 error fstream_class DirWriter
+48 error code EACCES
+49 error errno 3
+50 error stack Error: EACCES, mkdir '/usr/local/lib/node_modules/nodemon'
+51 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23
+51 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53
+51 error fstream_stack Object.oncomplete (fs.js:107:15)
+52 verbose exit [ 3, true ]

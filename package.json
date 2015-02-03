@@ -1,0 +1,9 @@
+{
+	"name": "chirp",
+	"version": "0.0.1",
+	"description": "a tiny little twitter clone",
+	"author": "hwz",
+	"dependencies": {
+		"express": "~4.7.0"
+	}
+}
