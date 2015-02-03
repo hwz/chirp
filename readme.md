@@ -1,0 +1,1 @@
+A work in progress -- Teaching example for the MEAN stack by building out a Twitter clone named Chirp!
