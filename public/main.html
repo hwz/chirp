@@ -1,3 +1,7 @@
+<div ng-show="loggedIn()">
+	<a ng-href="#" ng-click="logout()">Logout</a>
+</div>
+
 <form ng-Submit="submitPost()">
   <input type="text" ng-model="post.screen_name" />
   <input type="text" ng-model="post.text" />

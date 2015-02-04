@@ -1,4 +1,4 @@
-var app = angular.module('chirpApp', ['ngRoute']);
+var app = angular.module('chirpApp', ['ngRoute', 'ngResource']);
 
 app.config(function($routeProvider){
 	$routeProvider
@@ -8,20 +8,27 @@ app.config(function($routeProvider){
 			controller: 'mainController'
 		})
 		//the login display
-		.when('/login', {
-			templateUrl: 'login.html',
-			controller: 'loginController'
+		.when('/auth', {
+			templateUrl: 'auth.html',
+			controller: 'authController'
 		})
 });
 
 
-app.factory('Posts', function ($http) {
- 	return $http.get('sample.json');
+app.factory('postService', function ($http){
+	var baseUrl = "sample.json";
+	var factory = {};
+
+	factory.getAll = function(){
+		return $http.get(baseUrl);
+	};
+
+	return factory;
 });
 	
-app.controller('mainController', function($scope, Posts){
+app.controller('mainController', function($scope, postService){
 	$scope.posts = [];
-	Posts.success(function(data){
+	postService.getAll().success(function(data){
 		$scope.posts = data;
 	});
 	$scope.post = {screen_name: '', text: '', created_at: 0};
@@ -36,6 +43,6 @@ app.controller('mainController', function($scope, Posts){
 });
 
 
-app.controller('loginController', function($scope){
+app.controller('authController', function($scope){
 
 });
