@@ -5,6 +5,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var mongoose = require('mongoose');                         //add for Mongo support
+require('./models/Posts');                                  //need post schema
+mongoose.connect('mongodb://localhost/chirp');              //connect to Mongo
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 

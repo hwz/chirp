@@ -13,6 +13,8 @@
     "express": "~4.11.1",
     "mongoose": "^3.8.22",
     "morgan": "~1.5.1",
+    "p": "^0.2.0",
+    "passport-local": "^1.0.0",
     "serve-favicon": "~2.2.0"
   }
 }
