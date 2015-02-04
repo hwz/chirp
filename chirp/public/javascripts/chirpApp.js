@@ -14,8 +14,9 @@ app.config(function($routeProvider){
 		})
 });
 
-
-app.factory('postService', function ($http){
+/*
+//used for basic read from json
+app.factory('postService', function($http){
 	var baseUrl = "sample.json";
 	var factory = {};
 	factory.getAll = function(){
@@ -23,20 +24,27 @@ app.factory('postService', function ($http){
 	};
 	return factory;
 });
+*/
 	
+app.factory('postService', function($resource){
+	return $resource('/api/posts/:id');
+});
+
 app.controller('mainController', function($scope, postService){
 	$scope.posts = [];
+	$scope.post = {created_by: '', text: '', created_at: 0};
+/*
+//used for basic read from json
 	postService.getAll().success(function(data){
 		$scope.posts = data;
 	});
-	$scope.post = {screen_name: '', text: '', created_at: 0};
-
+*/
 	$scope.submitPost = function () {
-		$scope.post.created_at = Date.now();
-		$scope.posts.push($scope.post);
-
-		//reset
-		$scope.post = {screen_name: '', text:'', created_at: 0};
+		postService.save($scope.post, function(res){
+			$scope.posts[res._id] = res;
+			console.log($scope.posts);
+			$scope.post = {created_by: '', text:'', created_at: 0};	
+		});
 	};
 });
 

@@ -11,13 +11,13 @@ router.get('/', function(req, res, next) {
 router.route('/api/posts')
 	//creates a new post
 	.post(function(req, res){
-		var newPost = new Post();
-		newPost.text = req.body.text;
-		newPost.created_by = req.body.created_by;
-		newPost.save(function(err) {
+		var post= new Post();
+		post.text = req.body.text;
+		post.created_by = req.body.created_by;
+		post.save(function(err, post) {
 			if (err)
 				res.send(err);
-			res.json({ message: 'new post!' });
+			res.json(post);
 		});
 	})
 	//gets all posts
@@ -38,21 +38,21 @@ router.route('/api/posts/:id')
 				res.send(err);
 			res.json(post);
 		});
-	})
+	}) 
 	//updates specified post
 	.put(function(req, res){
 		Post.findById(req.params.id, function(err, post){
 			if(err)
 				res.send(err);
-			
+
 			post.created_by = req.body.created_by;
 			post.text = req.body.text;
 
-			post.save(function(err){
+			post.save(function(err, post){
 				if(err)
 					res.send(err);
 
-				res.json('updated this post');
+				res.json(post);
 			});
 		});
 	})
@@ -63,7 +63,7 @@ router.route('/api/posts/:id')
 			if (err)
 				res.send(err);
 
-			res.json({ message: 'post deleted' });
+			res.json("deleted :(");
 		});
 	});
 
