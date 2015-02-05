@@ -39,12 +39,15 @@ app.controller('mainController', function($scope, postService){
 		$scope.posts = data;
 	});
 */
-	$scope.submitPost = function () {
+	$scope.submit = function () {
 		postService.save($scope.post, function(res){
-			$scope.posts.push(res);
-			console.log($scope.posts);
+			$scope.posts = postService.query();
 			$scope.post = {created_by: '', text:'', created_at: 0};	
 		});
+	};
+	$scope.delete = function(post){
+		postService.delete({id: post._id})
+		$scope.posts = postService.query();
 	};
 });
 
