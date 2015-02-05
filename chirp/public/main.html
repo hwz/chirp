@@ -1,7 +1,6 @@
 <div ng-show="loggedIn()">
 	<a ng-href="#" ng-click="logout()">Logout</a>
 </div>
-{{"testing"}}
 <form ng-Submit="submitPost()">
   <input type="text" ng-model="post.created_by" />
   <input type="text" ng-model="post.text" />
@@ -9,5 +8,5 @@
 </form>
 
 <div ng-repeat="post in posts | orderBy:'created_at'"> <!---addl param :true reverses order -->
-	<p>{{post.created_by}} says {{post.text}} at {{post.created_at}}</p>
+	<p>{{post.created_by}} says {{post.text}} at {{post.created_at | date:"MM/dd/yyyy 'at' h:mma"}}</p>
 </div>

@@ -25,7 +25,7 @@ router.route('/api/posts')
 		Post.find(function(err, posts){
 			if(err)
 				res.send(err);
-			res.json(posts);
+			res.send(posts);
 		});
 	});
 

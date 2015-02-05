@@ -31,7 +31,7 @@ app.factory('postService', function($resource){
 });
 
 app.controller('mainController', function($scope, postService){
-	$scope.posts = [];
+	$scope.posts = postService.query();
 	$scope.post = {created_by: '', text: '', created_at: 0};
 /*
 //used for basic read from json
@@ -41,7 +41,7 @@ app.controller('mainController', function($scope, postService){
 */
 	$scope.submitPost = function () {
 		postService.save($scope.post, function(res){
-			$scope.posts[res._id] = res;
+			$scope.posts.push(res);
 			console.log($scope.posts);
 			$scope.post = {created_by: '', text:'', created_at: 0};	
 		});
