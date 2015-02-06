@@ -39,7 +39,7 @@ app.controller('mainController', function($scope, postService){
 		$scope.posts = data;
 	});
 */
-	$scope.submit = function () {
+	$scope.post = function () {
 		postService.save($scope.post, function(res){
 			$scope.posts = postService.query();
 			$scope.post = {created_by: '', text:'', created_at: 0};	
