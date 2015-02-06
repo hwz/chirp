@@ -9,11 +9,19 @@
 		<script src="/javascripts/chirpApp.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="/stylesheets/style.css">
 	</head>
 	<body>
 		<div id='main'>
-			<div ng-view>
-				
+			<nav class="navbar-fluid navbar-default navbar-fixed-top">
+					<div class="container">
+							<a class="navbar-brand" href="#"> Chirp! </a>
+							<p class="navbar-text"> Learn the MEAN stack by building this tiny app</p>
+							<p class="navbar-right navbar-text"><a href="#">Sign out</a></p>
+							<p class="navbar-right navbar-text">Signed in as {{"@hwz"}}</p>
+					</div>
+			</nav>
+			<div ng-view>		
 			</div>
 		</div>
 	</body>

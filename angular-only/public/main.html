@@ -1,13 +1,23 @@
-<div ng-show="loggedIn()">
-	<a ng-href="#" ng-click="logout()">Logout</a>
-</div>
-
-<form ng-Submit="submitPost()">
-  <input type="text" ng-model="post.screen_name" />
-  <input type="text" ng-model="post.text" />
-  <input type="submit" value="Post!" />
-</form>
-
-<div ng-repeat="post in posts | orderBy:'created_at'"> <!---addl param :true reverses order -->
-	<p>{{post.screen_name}} says {{post.text}} at {{post.created_at}}</p>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 col-md-offset-8"
+			<div ng-show="loggedIn()">
+				<a ng-href="#" ng-click="logout()">Logout</a>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3">
+			<form ng-Submit="submit()">
+			  <input type="text" ng-model="post.created_by" />
+			  <input type="text" ng-model="post.text" />
+			  <input type="submit" value="Post!" />
+			</form>
+		</div>
+		<div class="col-md-9">
+			<div ng-repeat="post in posts | orderBy:'created_at'"> <!---addl param :true reverses order -->
+				<p>{{post.created_by}} says {{post.text}} at {{post.created_at | date:"MM/dd/yyyy 'at' h:mma"}} <a ng-click="delete(post)">delete</a></p>
+			</div>
+		</div>
+	</div>
 </div>
