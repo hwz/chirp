@@ -6,31 +6,20 @@ var User = mongoose.model('User');
 var bcrypt = require('bcrypt');
 var passport = global.passport;
 
-router.use(function (req, res, next) {
-	console.log("DEBUG!!");
-  if (req.isAuthenticated()) { return next(); }
-  return res.send(401, {message:'not authenticated'});
-});
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Chirp!' });
-});
-
 router.route('/posts')
 	//creates a new post
 	.post(function(req, res){
 
 		if(!req.isa)
-		var post= new Post();
-		post.text = req.body.text;
-		post.created_by = req.body.created_by;
-		post.save(function(err, post) {
-			if (err){
-				return res.send(500, err);
-			}
-				
-			return res.json(post);
+			var post= new Post();
+			post.text = req.body.text;
+			post.created_by = req.body.created_by;
+			post.save(function(err, post) {
+				if (err){
+					return res.send(500, err);
+				}
+					
+				return res.json(post);
 		});
 	})
 	//gets all posts

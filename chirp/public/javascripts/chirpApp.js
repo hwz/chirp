@@ -52,6 +52,23 @@ app.controller('mainController', function($scope, postService){
 });
 
 
-app.controller('authController', function($scope){
+app.controller('authController', function($scope, $http){
+	$scope.user = {username: '', password: ''};
+	$scope.newUser = {username: '', password: ''};
 
+	$scope.login = function(){
+		$http.post('/auth/login', $scope.user).
+			success(function(data, status, headers, config){
+				$scope.user = {username: '', password: ''};
+				console.log("YAY LOGGED IN");
+			});
+	};
+
+	$scope.register = function(){
+		$http.post('/auth/signup', $scope.newUser).
+			success(function(data, status, headers, config){
+				$scope.user = {username: '', password: ''};
+				console.log("YAY LOGGED IN");
+			});
+	};
 });

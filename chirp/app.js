@@ -76,6 +76,7 @@ passport.use(new LocalStrategy(
 
 //import the routers
 var index = require('./routes/index');
+var api = require('./routes/api');
 var authenticate = require('./routes/authenticate');
 var users = require('./routes/users');
 
@@ -98,7 +99,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 app.use(passport.session());
 //register routers to root paths
-app.use('/api', index);
+app.use('/', index);
+app.use('/api', api);
 app.use('/auth', authenticate);
 app.use('/users', users);
 

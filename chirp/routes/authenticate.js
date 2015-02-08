@@ -10,7 +10,7 @@ router.route('/signup')
 
 	.post(function(req, res){
 
-		if(!req.params.username || !req.params.password){
+		if(!req.body.username || !req.body.password){
 			return res.send(400, {message: 'must supply json body with fields user_name and password '});
 		}
 
@@ -18,7 +18,7 @@ router.route('/signup')
 		user.user_name = req.body.user_name;
 
 		bcrypt.genSalt(10, function(err, salt) {
-		    bcrypt.hash(req.params.password, salt, function(err, hash) {
+		    bcrypt.hash(req.body.password, salt, function(err, hash) {
 		        user.password = hash;
 
 		        user.save(function(err, user){
@@ -35,9 +35,11 @@ router.route('/signup')
 
 router.route('/login')
 
-	.post(passport.authenticate('local'),
+	/* .post(passport.authenticate('local'),
 		function(req, res){
 			res.send(200);
 		}
-	);
+	); */
+	.post(passport.authenticate('local', { successRedirect: '/', failureRedirect: '/#/auth' }));
+
 module.exports = router;
