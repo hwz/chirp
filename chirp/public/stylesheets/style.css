@@ -28,3 +28,9 @@ a {
 .even {
 	background-color: #eceff3;
 }
+
+.form-signin {
+	max-width: 330px;
+	padding: 5px;
+	margin: 0 auto;
+}

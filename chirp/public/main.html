@@ -4,7 +4,7 @@
 			<div class="clearfix">
 				<h4>Say something</h4>
 				<form ng-Submit="post()">
-					<input required type="text" class="form-control" ng-model="post.created_by"/>
+					<input required type="text" class="form-control" ng-model="post.created_by" />
 					<textarea required class="form-control" maxlength="200" rows="3" ng-model="post.text" />
 					<input class="btn submit-btn pull-right" ng-disabled="!post-form.$valid" type="submit" value="Chirp!" />
 				</form>

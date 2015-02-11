@@ -7,6 +7,9 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 		<script src="/javascripts/chirpApp.js"></script>
+		<script>
+
+		</script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 		<link rel="stylesheet" href="/stylesheets/style.css">
@@ -18,10 +21,10 @@
 							<a class="navbar-brand" href="#"> Chirp! </a>
 							<p class="navbar-text"> Learn the MEAN stack by building this tiny app</p>
 							<p class="navbar-right navbar-text"><a href="#">Sign out</a></p>
-							<p class="navbar-right navbar-text">Signed in as {{"@hwz"}}</p>
+							<p class="navbar-right navbar-text">{{username}}</p>
 					</div>
 			</nav>
-			<div ng-view>		
+			<div ng-view>
 			</div>
 		</div>
 	</body>

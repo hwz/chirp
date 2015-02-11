@@ -9,7 +9,8 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Chirp!' });
+	//console.log("request is " + req.user.username);
+	res.render('index', { current_user: "req.user.username" });
 });
 
 module.exports = router;
