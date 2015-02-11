@@ -55,7 +55,7 @@ app.controller('mainController', function($scope, $http, $rootScope, postService
 	$scope.post = function () {
 		postService.save($scope.newPost, function(req, res){
 			$scope.posts = postService.query();
-			$scope.post = {created_by: '', text: '', created_at: 0};	
+			$scope.newPost = {created_by: '', text: '', created_at: 0};	
 		});
 	};
 	$scope.delete = function(post){
