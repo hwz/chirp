@@ -1,10 +1,10 @@
- <div ng-hide="loggedIn()">
-
+ <div>
 	<form class="form-signin" ng-submit="login()">
 		<h2>Log In</h2>
 		<input type="username" ng-model="user.username" placeholder="Username" class="form-control"><br>
 		<input type="password" ng-model="user.password" placeholder="Password" class="form-control"><br>
 		<input type="submit" value="Log in" class="btn btn-primary" />
+		<p class="text-warning">{{login_error_message}}</p>
 	</form>
 
 	<form class="form-signin" ng-submit="register()">
@@ -12,6 +12,7 @@
 		<input type="username" ng-model="newUser.username" placeholder="Username" class="form-control"><br>
 		<input type="password" ng-model="newUser.password" placeholder="Password" class="form-control"><br>
 		<input type="submit" value="Register" class="btn btn-primary" />
+		<p class="text-warning">{{reg_error_message}}</p>
 	</form>
 </div>
 

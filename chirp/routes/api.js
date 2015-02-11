@@ -9,7 +9,6 @@ var passport = global.passport;
 router.route('/posts')
 	//creates a new post
 	.post(function(req, res){
-
 		if(!req.isa)
 			var post= new Post();
 			post.text = req.body.text;
@@ -18,7 +17,6 @@ router.route('/posts')
 				if (err){
 					return res.send(500, err);
 				}
-					
 				return res.json(post);
 		});
 	})

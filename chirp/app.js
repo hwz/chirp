@@ -17,7 +17,6 @@ mongoose.connect('mongodb://localhost/test-chirp');              //connect to Mo
 var index = require('./routes/index');
 var api = require('./routes/api');
 var authenticate = require('./routes/authenticate')(passport);
-var users = require('./routes/users');
 
 var app = express();
 
@@ -42,7 +41,6 @@ app.use(passport.session());
 app.use('/', index);
 app.use('/api', api);
 app.use('/auth', authenticate);
-app.use('/users', users);
 
 //// Initialize Passport
 var initPassport = require('./passport/init');

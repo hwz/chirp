@@ -17,12 +17,13 @@
 	<body>
 		<div id='main'>
 			<nav class="navbar-fluid navbar-default navbar-fixed-top">
-					<div class="container">
-							<a class="navbar-brand" href="#"> Chirp! </a>
-							<p class="navbar-text"> Learn the MEAN stack by building this tiny app</p>
-							<p class="navbar-right navbar-text"><a href="#">Sign out</a></p>
-							<p class="navbar-right navbar-text">{{username}}</p>
-					</div>
+				<div class="container">
+						<a class="navbar-brand" href="#"> Chirp! </a>
+						<p class="navbar-text"> Learn the MEAN stack by building this tiny app</p>
+						<p class="navbar-right navbar-text" ng-hide="authenticated"><a href="#/auth">Login or Register</a></p>
+						<p class="navbar-right navbar-text" ng-show="authenticated"><a href="#" ng-click="signout()">Logout</a></p>
+						<p class="navbar-right navbar-text">Signed in as {{current_user}}</p>
+				</div>
 			</nav>
 			<div ng-view>
 			</div>
