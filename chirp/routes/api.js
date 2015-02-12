@@ -27,7 +27,7 @@ router.route('/posts')
 		});
 	});
 
-// with u_ids. probably wont be needed but i like fully fleshed out rest :)
+//post-specific commands. likely won't be used
 router.route('/posts/:id')
 	//gets specified post
 	.get(function(req, res){
@@ -54,6 +54,7 @@ router.route('/posts/:id')
 			});
 		});
 	})
+	//deletes the post
 	.delete(function(req, res) {
 		Post.remove({
 			_id: req.params.id
@@ -63,10 +64,5 @@ router.route('/posts/:id')
 			res.json("deleted :(");
 		});
 	});
-// Simple route middleware to ensure user is authenticated.
-//   Use this route middleware on any resource that needs to be protected.  If
-//   the request is authenticated (typically via a persistent login session),
-//   the request will proceed.  Otherwise, the user will be redirected to the
-//   login page.
 
 module.exports = router;

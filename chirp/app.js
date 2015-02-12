@@ -43,7 +43,7 @@ app.use('/api', api);
 app.use('/auth', authenticate);
 
 //// Initialize Passport
-var initPassport = require('./passport/init');
+var initPassport = require('./passport-init');
 initPassport(passport);
 
 // catch 404 and forward to error handler
