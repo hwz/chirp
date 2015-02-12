@@ -12,7 +12,7 @@ var isAuthenticated = function (req, res, next) {
 
 	// if the user is not authenticated then redirect him to the login page
 	res.redirect('/auth');
-}
+};
 
 module.exports = function(passport){
 
@@ -42,4 +42,4 @@ module.exports = function(passport){
 	});
 
 	return router;
-}
+};

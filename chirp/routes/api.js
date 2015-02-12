@@ -3,21 +3,18 @@ var router = express.Router();
 var mongoose = require( 'mongoose' );
 var Post = mongoose.model('Post');
 var User = mongoose.model('User');
-var bcrypt = require('bcrypt');
-var passport = global.passport;
 
 router.route('/posts')
 	//creates a new post
 	.post(function(req, res){
-		if(!req.isa)
-			var post= new Post();
-			post.text = req.body.text;
-			post.created_by = req.body.created_by;
-			post.save(function(err, post) {
-				if (err){
-					return res.send(500, err);
-				}
-				return res.json(post);
+		var post = new Post();
+		post.text = req.body.text;
+		post.created_by = req.body.created_by;
+		post.save(function(err, post) {
+			if (err){
+				return res.send(500, err);
+			}
+			return res.json(post);
 		});
 	})
 	//gets all posts
@@ -60,10 +57,9 @@ router.route('/posts/:id')
 	.delete(function(req, res) {
 		Post.remove({
 			_id: req.params.id
-		}, function(err, post) {
+		}, function(err) {
 			if (err)
 				res.send(err);
-
 			res.json("deleted :(");
 		});
 	});

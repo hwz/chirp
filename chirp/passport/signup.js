@@ -5,7 +5,7 @@ var bCrypt = require('bcrypt');
 
 module.exports = function(passport){
 
-	passport.use('signup', new LocalStrategy({
+    passport.use('signup', new LocalStrategy({
             passReqToCallback : true // allows us to pass back the entire request to the callback
         },
         function(req, username, password, done) {
@@ -52,6 +52,5 @@ module.exports = function(passport){
     // Generates hash using bCrypt
     var createHash = function(password){
         return bCrypt.hashSync(password, bCrypt.genSaltSync(10), null);
-    }
-
-}
+    };
+};

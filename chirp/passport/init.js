@@ -21,4 +21,4 @@ module.exports = function(passport){
     login(passport);
     signup(passport);
 
-}
+};
