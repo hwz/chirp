@@ -1,12 +1,5 @@
 var app = angular.module('chirpApp', ['ngRoute', 'ngResource']).run(function($http, $rootScope) {
-	$rootScope.authenticated = false;
 	$rootScope.current_user = 'Guest';
-
-	$rootScope.signout = function(){
-		$http.get('auth/signout');
-		$rootScope.authenticated = false;
-		$rootScope.current_user = 'Guest';
-	};
 });
 
 app.config(function($routeProvider){
@@ -28,7 +21,7 @@ app.config(function($routeProvider){
 		});
 });
 
-/*
+
 //used for basic read from json
 app.factory('postService', function($http){
 	var baseUrl = "sample.json";
@@ -38,30 +31,22 @@ app.factory('postService', function($http){
 	};
 	return factory;
 });
-*/
-app.factory('postService', function($resource){
-	return $resource('/api/posts/:id');
-});
+
 
 app.controller('mainController', function($scope, $rootScope, postService){
-	$scope.posts = postService.query();
+	$scope.posts = [];
 	$scope.newPost = "";
-/*
-//used for basic read from json
+
+	//used for basic read from json
 	postService.getAll().success(function(data){
 		$scope.posts = data;
 	});
-*/
+
 	$scope.post = function () {
-		postService.save({created_by: $rootScope.current_user, text: $scope.newPost, created_at: Date.now()}, 
-		function(){
-			$scope.posts = postService.query();
-			$scope.newPost = "";	
-		});
-};
-	$scope.delete = function(post){
-		postService.delete({id: post._id});
-		$scope.posts = postService.query();
+		$scope.posts.push({created_by: $rootScope.current_user, text: $scope.newPost, created_at: Date.now()});
+		
+		//resets post
+		$scope.newPost = "";
 	};
 });
 app.controller('authController', function($scope, $http, $rootScope, $location){
