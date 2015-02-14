@@ -1,4 +1,4 @@
-var app = angular.module('chirpApp', ['ngRoute', 'ngResource']).run(function($http, $rootScope) {
+var app = angular.module('chirpApp', ['ngRoute']).run(function($http, $rootScope) {
 	$rootScope.current_user = 'Guest';
 });
 
@@ -22,25 +22,37 @@ app.config(function($routeProvider){
 });
 
 
-//used for basic read from json
-app.factory('postService', function($http){
-	var baseUrl = "sample.json";
-	var factory = {};
-	factory.getAll = function(){
-		return $http.get(baseUrl);
-	};
-	return factory;
-});
+// //used for basic read from json
+// app.factory('postService', function($http){
+// 	var baseUrl = "sample.json";
+// 	var factory = {};
+// 	factory.getAll = function(){
+// 		return $http.get(baseUrl);
+// 	};
+// 	return factory;
+// });
 
+// myapp.directive('chirp', function() {
+//     var directive = {};
 
-app.controller('mainController', function($scope, $rootScope, postService){
+//     directive.restrict = 'E'; //elements only
+//     directive.template = 
+
+//     return directive;
+// });
+
+app.controller('mainController', function($scope, $rootScope, $http){
 	$scope.posts = [];
 	$scope.newPost = "";
 
-	//used for basic read from json
-	postService.getAll().success(function(data){
+	// //used for basic read from json
+	// postService.getAll().success(function(data){
+	// 	$scope.posts = data;
+	// });
+	$http.get('sample.json').success(function(data){
 		$scope.posts = data;
 	});
+	
 
 	$scope.post = function () {
 		$scope.posts.push({created_by: $rootScope.current_user, text: $scope.newPost, created_at: Date.now()});
