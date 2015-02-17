@@ -151,3 +151,34 @@ Okay, this is starting to work! Our page is looking pretty rough though, and we 
 </html>
 ```
 
+Since we're using an empty array for `posts`, we don't see anything in the Chirp Feed until we start manually create some. Normally, we'd call an API from a to get the most recent chirps, but we're going to be building that out in a later section. Instead, we'll fake an API call by sending a `get` request to retrieve `sample.json`. We don't want to clutter our `mainController` with functions that aren't strictly related to our data, and this call is a function that we might reuse throughout our app, so we're going to use a `factory` service instead.
+
+####chirpApp.js####
+```javascript
+var app = angular.module('chirpApp', []);
+
+app.controller('mainController', function($scope){
+	$scope.posts = [];
+	$scope.newPost = {created_by: '', text: '', created_at: ''};
+	
+	postService.getAll().success(function(data){
+		$scope.posts = data;
+	});
+
+	$scope.post = function(){
+		$scope.newPost.created_at = Date.now();
+		$scope.posts.push($scope.newPost);
+		$scope.newPost = {created_by: '', text: '', created_at: ''};
+	};
+});
+
+app.factory('postService', function($http){
+	var baseUrl = "sample.json";
+	var factory = {};
+	factory.getAll = function(){
+		return $http.get(baseUrl);
+	};
+	return factory;
+});
+```
+
