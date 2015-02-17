@@ -52,14 +52,14 @@ app.controller('mainController', function($scope, $rootScope, postService){
 		$scope.posts = data;
 	});
 */
-	$scope.post = function () {
+	$scope.post = function() {
 		postService.save({created_by: $rootScope.current_user, text: $scope.newPost, created_at: Date.now()}, 
 		function(){
 			$scope.posts = postService.query();
 			$scope.newPost = "";	
 		});
-};
-	$scope.delete = function(post){
+	};
+	$scope.delete = function(post)	{
 		postService.delete({id: post._id});
 		$scope.posts = postService.query();
 	};
