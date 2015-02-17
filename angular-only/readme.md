@@ -1,5 +1,7 @@
-###Setting up the front end with Angular.js###
+##Setting up the front end with Angular.js##
 
+
+###The Setup###
 First things first, we'll need to create an Angular app that's going to control the all the functionality for the our application's front end. Let's call that `chirpApp.js`. We can then integrate it into our `main.html`, `login.html`, and `signup.html` views.
 
 In here, we'll create a `module` named `chirpApp` to contain all the logic for this Angular app. We'll also add in a `controller` named `mainController` that takes care of our core functionality, such as creating and displaying posts. We're going to leave these empty for now.
@@ -11,8 +13,6 @@ var app = angular.module('chirpApp', []);
 app.controller('mainController', function(){
 });
 ```
-
-
 
 We can use this in our primary view, `main.html`. This should contain a form for post creation, as well as a place to display the feed of posts. Let's scaffold everything out except for the posts display for the time being. We'll manually set the username of the poster with a text field for now, since we don't have a logged in user.
 
@@ -57,6 +57,8 @@ Now, let's go in and connect this up to our angular app. First things first, we'
 	</body>
 </html>
 ```
+
+###Connecting Model and View###
 
 Now that the two are connected, we're can create objects in our `mainController` for our view to access and display. We're going to  invoke a `$scope` object as we're constructing our `mainController`. The `$scope` object is increbibly important, and is the Model part of our Model-View-Controller. It is shared between our controller and our view, and is how we can pass data and even functions between the two.
 
@@ -115,6 +117,8 @@ We also use a simple `orderBy` filter on our `ng-repeat` to determine the order 
 </html>
 ```
 
+###Styling###
+
 Okay, this is starting to work! Our page is looking pretty rough though, and we can't even see the effects of our odd and even classes, so let's add some formatting onto it. We'll use Bootstrap and add in a stylesheet that I created earlier, which you can find in the `stylesheets/` folder. Let's look at the results!
 
 
@@ -151,6 +155,17 @@ Okay, this is starting to work! Our page is looking pretty rough though, and we 
 </html>
 ```
 
+###Creating Additional Views###
+
+While we don't have user accounts yet, we soon will. Let's take a moment to create login and registration pages. Since they're both authentication pages and will make use of a `user` model, let's just have them both use the same controller.
+
+
+###Routing###
+
+Now, this page works
+
+###Services###
+
 Since we're using an empty array for `posts`, we don't see anything in the Chirp Feed until we start manually create some. Normally, we'd call an API from a to get the most recent chirps, but we're going to be building that out in a later section. Instead, we'll fake an API call by sending a `get` request to retrieve `sample.json`. We don't want to clutter our `mainController` with functions that aren't strictly related to our data, and this call is a function that we might reuse throughout our app, so we're going to use a `factory` service instead.
 
 ####chirpApp.js####
@@ -181,4 +196,5 @@ app.factory('postService', function($http){
 	return factory;
 });
 ```
+
 
