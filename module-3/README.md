@@ -81,6 +81,8 @@ In the **routes** folder delete the **user.js** file, and create two new javascr
 cd ./routes
 # remove users.js
 rm users.js
+# remove index.js
+rm index.js
 # create authentication.js and api.js files
 touch authentication.js
 touch api.js
