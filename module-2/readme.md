@@ -231,7 +231,7 @@ The only differences between `login.html` and `register.html` should be the form
         <p class="text-warning">{{error_message}}</p>
         <input type="username" ng-model="user.username" placeholder="Username" class="form-control"><br>
         <input type="password" ng-model="user.password" placeholder="Password" class="form-control"><br>
-        <input type="submit" value="Log in" class="btn btn-primary" />
+        <input type="submit" value="Register" class="btn btn-primary" />
       </form>
     </div>
   </body>
@@ -333,7 +333,7 @@ We can transform our `main.html`, `login.html`, and `register.html` into simple 
   <p class="text-warning">{{error_message}}</p>
   <input type="username" ng-model="user.username" placeholder="Username" class="form-control"><br>
   <input type="password" ng-model="user.password" placeholder="Password" class="form-control"><br>
-  <input type="submit" value="Log in" class="btn btn-primary" />
+  <input type="submit" value="Register" class="btn btn-primary" />
 </form>
 ```
 
