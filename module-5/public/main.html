@@ -1,0 +1,21 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-offset-2 col-md-8">
+			<div class="clearfix">
+				<h4>{{current_user}} says</h4>
+				<form ng-Submit="post()">
+					<textarea required class="form-control" maxlength="200" rows="3" ng-model="newPost" />
+					<input class="btn submit-btn pull-right" ng-disabled="!post-form.$valid" type="submit" value="Chirp!" />
+				</form>
+			</div>
+			<div id="post-stream">
+				<h4>Chirp Feed</h4>
+				<div class="post" ng-repeat="post in posts | orderBy:created_at :true" ng-class-odd="'odd post'" ng-class-even="'even post'"> <!---addl param :true reverses order -->
+					<p>{{post.text}}</p>
+					<small>Posted by @{{post.created_by}}</small> <small class="pull-right">{{post.created_at | date:"h:mma 'on' MMM d, y"}}</small>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
