@@ -330,8 +330,8 @@ npm install express-session --save
 npm install passport --save
 # install passport-local strategy for handling authentication
 npm install passport-local --save
-# install bcrypt for handling creating password hashes
-npm install bcrypt --save
+# install bcrypt-nodejs for handling creating password hashes
+npm install bcrypt-nodejs --save
 ```
 
 ## Express Middleware
@@ -412,7 +412,7 @@ Now copy and paste this boiler plate passport initialization code which creates 
 
 ```js
 var LocalStrategy   = require('passport-local').Strategy;
-var bCrypt = require('bcrypt');
+var bCrypt = require('bcrypt-nodejs');
 //temporary data store
 var users = {};
 module.exports = function(passport){
@@ -471,7 +471,7 @@ At top near your require statements in **passport-init.js** add a declaration fo
 
 ```
 var LocalStrategy   = require('passport-local').Strategy;
-var bCrypt = require('bcrypt');
+var bCrypt = require('bcrypt-nodejs');
 //temporary data store
 var users = {};
 ```
@@ -570,7 +570,7 @@ var User = require('./models/models');
 var mongoose = require('mongoose');   
 var User = mongoose.model('User');
 var LocalStrategy   = require('passport-local').Strategy;
-var bCrypt = require('bcrypt');
+var bCrypt = require('bcrypt-nodejs');
 users = {};
 module.exports = function(passport){
 
