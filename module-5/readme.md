@@ -12,7 +12,7 @@ First off, we'll need some place to store our authentication state that all of o
 
 ```javascript
 //chirpApp.js
-var app = angular.module('chirpApp', ['ngRoute', 'ngResource']).run(function($rootScope) {
+var app = angular.module('chirpApp', ['ngRoute']).run(function($rootScope) {
   $rootScope.authenticated = false;
   $rootScope.current_user = '';
   };
@@ -27,7 +27,7 @@ When users enter their credentials and log in, we should make request to the `/a
 In order to redirect our users on successful authentications, we'll need to use the `$location` service and direct our app to the path we'd like to go to. In this case, it's just our main view at `/`.
 
 ```javascript
-chirpApp.js
+//chirpApp.js
 app.controller('authController', function($scope, $http, $rootScope, $location){
   $scope.user = {username: '', password: ''};
   $scope.error_message = '';

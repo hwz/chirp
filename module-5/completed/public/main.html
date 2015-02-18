@@ -1,9 +1,9 @@
 <div class="clearfix">
-	<form ng-Submit="post()" ng-show="authenticated">
-		<h4>{{current_user}} says</h4>
-		<textarea required class="form-control" maxlength="200" rows="3" placeholder="Say something" ng-model="newPost.text"></textarea>
-		<input class="btn submit-btn pull-right" type="submit" value="Chirp!" />
-	</form>
+  <form ng-Submit="post()" ng-show="authenticated">
+    <h4>{{current_user}} says</h4>
+    <textarea required class="form-control" maxlength="200" rows="3" placeholder="Say something" ng-model="newPost.text"></textarea>
+    <input class="btn submit-btn pull-right" type="submit" value="Chirp!" />
+  </form>
 </div>
 <div id="post-stream">
 	<h4>Chirp Feed</h4>
@@ -13,3 +13,5 @@
 			<small class="pull-right">{{post.created_at | date:"h:mma 'on' MMM d, y"}}</small>
 		</div>
 </div>
+
+
