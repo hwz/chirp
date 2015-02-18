@@ -260,7 +260,7 @@ User.findOne({ 'username' :  username }, function(err, user) {
 				console.log('Error in Saving user: '+err);  
 				throw err;  
 			}
-			console.log(newUser.username + ' Registration succesful');    
+			console.log(newUser.username + ' Registration successful');    
 			return done(null, newUser);
 		});
 	}
