@@ -67,7 +67,7 @@ create : .
      $ DEBUG=Start ./bin/www
 ```
 
-Now install the dependencies for the application. Npm will read the dependencies out of package.json  and place them into a directory named **node_mdoules**. Execute the command:
+Now install the dependencies for the application. Npm will read the dependencies out of package.json  and place them into a directory named **node_modules**. Execute the command:
 
 ```bash
 # install dependencies described in package.json
