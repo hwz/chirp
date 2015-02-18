@@ -30,15 +30,6 @@ app.controller('mainController', function($scope){
 	};
 });
 
-app.factory('postService', function($http){
-	var baseUrl = "sample.json";
-	var factory = {};
-	factory.getAll = function(){
-		return $http.get(baseUrl);
-	};
-	return factory;
-});
-
 app.controller('authController', function($scope){
 	$scope.user = {username: '', password: ''};
 	$scope.error_message = '';
