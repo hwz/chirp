@@ -35,6 +35,7 @@ The first thing we need to do is generate an express application using Node.js. 
 
 ```bash
 # create a new express application
+mkdir ./Start
 cd ./Start
 express --ejs .
 ```
