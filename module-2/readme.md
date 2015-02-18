@@ -2,6 +2,9 @@
 
 
 ###The Setup###
+
+####Creating an Angular module and controller
+
 First things first, we'll need to create an Angular app that's going to control the all the functionality for the our application's front end. Let's call that `chirpApp.js`. We can then integrate it into our `main.html`, `login.html`, and `signup.html` views.
 
 In here, we'll create a `module` named `chirpApp` to contain all the logic for this Angular app. We'll also add in a `controller` named `mainController` that takes care of our core functionality, such as creating and displaying posts. We're going to leave these empty for now.
@@ -13,8 +16,8 @@ var app = angular.module('chirpApp', []);
 app.controller('mainController', function(){
 });
 ```
-
-We can use this in our primary view, `main.html`. This should contain a form for post creation, as well as a place to display the feed of posts. Let's scaffold everything out except for the posts display for the time being. We'll manually set the username of the poster with a text field for now, since we don't have a logged in user.
+####Setting up a a template
+We can use this in our primary template, `main.html`. This should contain a form for post creation, as well as a place to display the feed of posts. Let's scaffold everything out except for the posts display for the time being. We'll input a username with a text field for now, since we don't have a logged in user.
 
 
 ```html
@@ -41,7 +44,9 @@ We can use this in our primary view, `main.html`. This should contain a form for
 </html>
 ```
 
-Now, let's go in and connect this up to our angular app. First things first, we'll need to include the Angular files. The easiest and quickest way to grab the core files is the [Google CDN](https://docs.angularjs.org/misc/downloading). We'll also include our `chirpApp.js` file. Next, we'll add the `ng-app` directive to the top-level element of our app to bootstrap our`chirpApp` module to it. In this case, that'd be the `<body>` tag. While we're at it, we should also add  `ng-controller` directive to the top level of the main section and point it to our `mainController`.
+Now, let's go in and connect this up to our Angular app.
+
+First things first, we'll need to include the Angular files. The easiest and quickest way to grab the core files is the [Google CDN](https://docs.angularjs.org/misc/downloading). We'll also include our `chirpApp.js` file. Next, we'll add the `ng-app` directive to the top-level element of our app to bootstrap our`chirpApp` module to it. In this case, that'd be the `<body>` tag. While we're at it, we should also add the `ng-controller` directive to the top level of the main section and point it to our `mainController`.
 
 ```html
 <!--main.html-->
@@ -62,7 +67,8 @@ Now, let's go in and connect this up to our angular app. First things first, we'
 
 ###Connecting Model and View###
 
-Now that the two are connected, we're can create objects in our `mainController` for our view to access and display. We're going to  invoke a `$scope` object as we're constructing our `mainController`. The `$scope` object is increbibly important, and is the Model part of our Model-View-Controller. It is shared between our controller and our view, and is how we can pass data and even functions between the two.
+####$scope variables
+Now that the two are connected, we can create objects in our `mainController` for our view to access and display. We're going to invoke a `$scope` object as we're constructing our `mainController`. The `$scope` object is increbibly important, and is the Model part of our Model-View-Controller. It is shared between our controller and our view, and is how we can pass data and even functions between the two.
 
 We'll attach a `posts` array to our `$scope` to store all the posts that are created. 
 
@@ -86,6 +92,9 @@ app.controller('mainController', function($scope){
   };
 });
 ```
+
+####Data Binding and Filtering
+
 Now, let's start integrating and calling these from our `main.html`. We can use the `ng-model` directive to bind the properties of `newPost` to our chirp posting form. 
 
 We can even start displaying the chirp feed now. The `ng-repeat` directive is perfect for this. When we use it with the syntax `ng-repeat = post in posts` on our, Angular will access the `posts` variable and loop through and set each to `post`. Then we can access the details of each `post` and display them. 
@@ -161,6 +170,8 @@ Okay, this is starting to work! Our page is looking pretty rough though, and we 
 
 ###Register and Login###
 
+####Authentication Controllers
+
 While we don't have user accounts yet, we soon will. Let's take a moment to create login and registration pages. Since they're both authentication pages and will make use of the same `user` model, let's just have them both use one `authController`. 
 
 We'll add this to our `chirpApp.js` and add an empty `user` to the `$scope`. This will pass the credentials that the user has inputted back to our controller, and be accessed by our `login` and `register` functions. 
@@ -197,9 +208,11 @@ app.controller('authController', function($scope){
 });
 ```
 
+####Authentication Templates
+
 While they can share the same controller, they'll need separate templates. We'll create a `login.html` as well as a `register.html`. To save some time, I've styled the form control a little with the `"form-auth"` class, and I'm using the `ng-app` and `ng-controller` directives just as before, and setting `ng-controller="authController"`. We're then going to use ng-model to bind the username and password to our `$scope`. 
 
-The only differences between `login.html` and `register.html` should be the titles and the `ng-submit` function, which should be set to its respective functions.
+The only differences between `login.html` and `register.html` should be the form headings and the `ng-submit` function, which should be set to its respective functions.
 
 ```html
 <!--register.html-->
@@ -249,14 +262,15 @@ The only differences between `login.html` and `register.html` should be the titl
 </html>
 ```
 
-###Creating Partials###
+###Creating a Single Page App###
 
-We have three views and they all function fine, but one of the joys of Angular is that you don't have to reload all your resources. Instead, we can combine these into the infamous single page application, and create `partial templates` that we'll dynamically load into the view when we need them. 
+####Creating Partials
+We have three views and we can navigate to each one by changing the URL, but one of the joys of Angular is that you don't have to reload all your resources. Instead, we can combine these into the infamous single page application, and create `partial templates` that we'll dynamically load into the view when we need them. 
 
 
 Let's begin by making the base `layout template` page, `index.html`. We can put all of our javascript and css links here. We'll also set the directive for our `ng-app` here.
 
-The `ng-view` directive is used to indicate where each view partials will be injected if they are needed. 
+The `ng-view` directive is used to indicate where each view partial will be injected if it is needed. 
 
 ```html
 <!--index.html-->
@@ -323,6 +337,8 @@ We can transform our `main.html`, `login.html`, and `register.html` into simple 
 </form>
 ```
 
+####Routing with ngRoute
+
 Much shorter, right? You might also have noticed that we've taken out any mention of what controller each is going to use. That's because we'll do this in our routing inside `chirpApp.js`. We'll be making use of `ngRoute`, and Angular-provided module that we'll add as a dependency. It's packaged separately from the rest of Angular, so we'll also need to link to it from our `index.html`.
 
 ```html
@@ -357,6 +373,8 @@ app.config(function($routeProvider){
 ...
 ```
 
+####Running it on an HTTP server
+
 If we now run this as-is, we're going to see that we run into some CORS errors. Because loading new views in Angular will require us to make some cross origin requests, we're going to need to serve our app on an HTTP server. I'm just going to set up a lightweight node server for now and have it serve all of the files we've already created. Because Node will be covered in the next module, I'm not going to go into much detail. We're just going to put all of our Angular files into the `/public/` folder, and point Node to it as our default page.
 
 ```javascript
@@ -377,6 +395,7 @@ app.listen(port, function() {
 
 And now if we run this, it should all work!
 
+###Adding Navigation
 Since we're can render our partials views in only part of the page, we can put a nice florish on our app by putting a navigation header in our index. It should then get displayed across each of our views. We're going to make sure of the typical Bootstrap navigation element.
 
 ```html
