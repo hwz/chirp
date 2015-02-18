@@ -331,7 +331,7 @@ npm install passport --save
 # install passport-local strategy for handling authentication
 npm install passport-local --save
 # install bcrypt for handling creating password hashes
-nom install bcrypt --save
+npm install bcrypt --save
 ```
 
 ## Express Middleware
