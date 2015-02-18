@@ -371,11 +371,10 @@ The session manager uses a **secret** to maintain sessions. In practice, you sho
 
 ### Bootstrapping Passport
 
-To bootstrap passport first we'll require passport and the passport-local Strategy in **app.js**:
+To bootstrap passport first we'll require passport in **app.js**:
 
 ```js
 var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
 ```
 
 Now, add passport as an application level middleware. We'll add it to the bottom of the middleware chain:
