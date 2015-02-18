@@ -1,0 +1,16 @@
+<div class="clearfix">
+	<form ng-Submit="post()">
+		<input required type="text" class="form-control" placeholder="Your name" ng-model="newPost.created_by" /> 
+		<textarea required class="form-control" maxlength="200" rows="3" placeholder="Say something" ng-model="newPost.text"></textarea>
+		<input class="btn submit-btn pull-right" type="submit" value="Chirp!" />
+	</form>
+	<div id="post-stream">
+		<h4>Chirp Feed</h4>
+			<div class="post" ng-repeat="post in posts | orderBy:'created_at':true" ng-class-odd="'odd'" ng-class-even="'even'"> 
+				<p>{{post.text}}</p>
+				<small>Posted by @{{post.created_by}}</small>
+				<small class="pull-right">{{post.created_at | date:"h:mma 'on' MMM d, y"}}</small>
+			</div>
+	</div>
+</div>
+

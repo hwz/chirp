@@ -1,0 +1,29 @@
+<!doctype html>
+<html ng-app="chirpApp">
+	<head>
+		<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-route.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+		<script src="/javascripts/chirpApp.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="/stylesheets/style.css">
+	</head>
+	<body>
+		<div id='main'>
+			<nav class="navbar-fluid navbar-default navbar-fixed-top">
+				<div class="container">
+						<a class="navbar-brand" href="#"> Chirp! </a>
+						<p class="navbar-text"> Learn the MEAN stack by building this tiny app</p>
+						<p class="navbar-right navbar-text" ng-hide="authenticated"><a href="#/login">Login</a> or <a href="#/signup">Register</a></p>
+						<p class="navbar-right navbar-text" ng-show="authenticated"><a href="#" ng-click="signout()">Logout</a></p>
+						<p class="navbar-right navbar-text">Signed in as {{current_user}}</p>
+				</div>
+			</nav>
+			<div ng-view>
+			</div>
+		</div>
+	</body>
+</html>
