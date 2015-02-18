@@ -178,7 +178,7 @@ app.use('/users', users);
 and replace it with
 
 ```js
-app.use('/auth', authenticate);
+//app.use('/auth', authenticate);
 app.use('/api', api);
 ```
 
