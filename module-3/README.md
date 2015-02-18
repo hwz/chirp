@@ -442,12 +442,8 @@ module.exports = function(passport){
 		},
 		function(req, username, password, done) {
 
-			findOrCreateUser = function(){
+			return done('we have not implemented this', false);
 
-				return done('we have not implemented this', false);
-			};
-
-			return findOrCreateUser();
 		})
 	);
 	
