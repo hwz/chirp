@@ -327,7 +327,7 @@ Passport is the library we will use to handle storing users within HTTP sessions
 # install express session middleware
 npm install express-session --save
 # install passport
-nm install passport --save
+npm install passport --save
 # install passport-local strategy for handling authentication
 npm install passport-local --save
 # install bcrypt for handling creating password hashes
