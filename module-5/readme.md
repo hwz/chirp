@@ -11,9 +11,9 @@ First off, we'll need some place to store our authentication state that all of o
 ####chirpApp.js####
 ```javascript
 var app = angular.module('chirpApp', ['ngRoute', 'ngResource']).run(function($rootScope) {
-	$rootScope.authenticated = false;
-	$rootScope.current_user = '';
-	};
+  $rootScope.authenticated = false;
+  $rootScope.current_user = '';
+  };
 });
 ...
 ```
@@ -25,34 +25,34 @@ In order to redirect our users on successful authentications, we'll need to use 
 ####chirpApp.js####
 ```javascript
 app.controller('authController', function($scope, $http, $rootScope, $location){
-	$scope.user = {username: '', password: ''};
-	$scope.error_message = '';
+  $scope.user = {username: '', password: ''};
+  $scope.error_message = '';
 
-	$scope.login = function(){
-		$http.post('/auth/login', $scope.user).success(function(data){
-			if(data.state == 'success'){
-				$rootScope.authenticated = true;
-				$rootScope.current_user = data.user.username;
-				$location.path('/');
-			}
-			else{
-				$scope.error_message = data.message;
-			}
-		});
-	};
+  $scope.login = function(){
+    $http.post('/auth/login', $scope.user).success(function(data){
+      if(data.state == 'success'){
+        $rootScope.authenticated = true;
+        $rootScope.current_user = data.user.username;
+        $location.path('/');
+      }
+      else{
+        $scope.error_message = data.message;
+      }
+    });
+  };
 
-	$scope.register = function(){
-		$http.post('/auth/signup', $scope.user).success(function(data){
-			if(data.state == 'success'){
-				$rootScope.authenticated = true;
-				$rootScope.current_user = data.user.username;
-				$location.path('/');
-			}
-			else{
-				$scope.error_message = data.message;
-			}
-		});
-	};
+  $scope.register = function(){
+    $http.post('/auth/signup', $scope.user).success(function(data){
+      if(data.state == 'success'){
+        $rootScope.authenticated = true;
+        $rootScope.current_user = data.user.username;
+        $location.path('/');
+      }
+      else{
+        $scope.error_message = data.message;
+      }
+    });
+  };
 });
 ```
 If we're signing users in, we'll also need a way to sign users out. I'd like for users to be able to do this straight from the navigation, so we'll need to put this function in the `rootScope` as well. 
@@ -60,14 +60,14 @@ If we're signing users in, we'll also need a way to sign users out. I'd like for
 ####chirpApp.js####
 ```javascript
 var app = angular.module('chirpApp', ['ngRoute', 'ngResource']).run(function($http, $rootScope) {
-	$rootScope.authenticated = false;
-	$rootScope.current_user = '';
+  $rootScope.authenticated = false;
+  $rootScope.current_user = '';
 
-	$rootScope.signout = function(){
-		$http.get('auth/signout');
-		$rootScope.authenticated = false;
-		$rootScope.current_user = '';
-	};
+  $rootScope.signout = function(){
+    $http.get('auth/signout');
+    $rootScope.authenticated = false;
+    $rootScope.current_user = '';
+  };
 });
 ```
 
@@ -77,13 +77,13 @@ Now, let's link to this in the navigation header! We'll use the `ng-click` direc
 ```html
 ...
 <nav class="navbar-fluid navbar-default navbar-fixed-top">
-	<div class="container">
-			<a class="navbar-brand" href="#"> Chirp! </a>
-			<p class="navbar-text"> Learn the MEAN stack by building this tiny app</p>
-			<p class="navbar-right navbar-text" ng-hide="authenticated"><a href="#/login">Login</a> or <a href="#/signup">Register</a></p>
-			<p class="navbar-right navbar-text" ng-show="authenticated"><a href="#" ng-click="signout()">Logout</a></p>
-			<p class="navbar-right navbar-text" ng-show="authenticated">Signed in as {{current_user}}</p>
-	</div>
+  <div class="container">
+      <a class="navbar-brand" href="#"> Chirp! </a>
+      <p class="navbar-text"> Learn the MEAN stack by building this tiny app</p>
+      <p class="navbar-right navbar-text" ng-hide="authenticated"><a href="#/login">Login</a> or <a href="#/signup">Register</a></p>
+      <p class="navbar-right navbar-text" ng-show="authenticated"><a href="#" ng-click="signout()">Logout</a></p>
+      <p class="navbar-right navbar-text" ng-show="authenticated">Signed in as {{current_user}}</p>
+  </div>
 </nav>
 ...
 ```
@@ -98,27 +98,27 @@ We were using just an empty array for `posts`, but now we have a real backend th
 var app = angular.module('chirpApp', []);
 
 app.controller('mainController', function($scope, postServie){
-	$scope.posts = [];
-	$scope.newPost = {created_by: '', text: '', created_at: ''};
-	
-	postService.getAll().success(function(data){
-		$scope.posts = data;
-	});
+  $scope.posts = [];
+  $scope.newPost = {created_by: '', text: '', created_at: ''};
+  
+  postService.getAll().success(function(data){
+    $scope.posts = data;
+  });
 
-	$scope.post = function(){
-		$scope.newPost.created_at = Date.now();
-		$scope.posts.push($scope.newPost);
-		$scope.newPost = {created_by: '', text: '', created_at: ''};
-	};
+  $scope.post = function(){
+    $scope.newPost.created_at = Date.now();
+    $scope.posts.push($scope.newPost);
+    $scope.newPost = {created_by: '', text: '', created_at: ''};
+  };
 });
 
 app.factory('postService', function($http){
-	var baseUrl = "/api/posts";
-	var factory = {};
-	factory.getAll = function(){
-		return $http.get(baseUrl);
-	};
-	return factory;
+  var baseUrl = "/api/posts";
+  var factory = {};
+  factory.getAll = function(){
+    return $http.get(baseUrl);
+  };
+  return factory;
 });
 ```
 
@@ -140,20 +140,20 @@ var app = angular.module('chirpApp', ['ngRoute', 'ngResource']);
 ...
 
 app.controller('mainController', function($scope, postService){
-	$scope.posts = postService.query();
-	$scope.newPost = "";
+  $scope.posts = postService.query();
+  $scope.newPost = "";
 
-	$scope.post = function() {
-		postService.save({created_by: $rootScope.current_user, text: $scope.newPost, created_at: Date.now()}, 
-		function(){
-			$scope.posts = postService.query();
-			$scope.newPost = "";	
-		});
-	};
+  $scope.post = function() {
+    postService.save({created_by: $rootScope.current_user, text: $scope.newPost, created_at: Date.now()}, 
+    function(){
+      $scope.posts = postService.query();
+      $scope.newPost = "";  
+    });
+  };
 });
 
 app.factory('postService', function($resource){
-	return $resource('/api/posts/:id');
+  return $resource('/api/posts/:id');
 });
 ```
 

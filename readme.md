@@ -12,4 +12,4 @@ Build an API using Express
 
 and deploy it all on Azure!
 
-###[Module 1 - Getting started with Angular](https://github.com/hwz/chirp/tree/master/angular-only)###
+###[Module 2 - Getting started with Angular](https://github.com/hwz/chirp/tree/master/module-2)###
