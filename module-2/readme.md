@@ -396,7 +396,7 @@ app.listen(port, function() {
 And now if we run this, it should all work!
 
 ###Adding Navigation
-Since we're can render our partials views in only part of the page, we can put a nice florish on our app by putting a navigation header in our index. It should then get displayed across each of our views. We're going to make sure of the typical Bootstrap navigation element.
+Since we're can render our partials views in only part of the page, we can put a nice florish on our app by putting a navigation header in our index. It should then get displayed across each of our views. We're going to make use of the typical Bootstrap navigation element.
 
 ```html
 <!--index.html-->

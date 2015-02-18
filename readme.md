@@ -13,3 +13,7 @@ Build an API using Express
 and deploy it all on Azure!
 
 ###[Module 2 - Getting started with Angular](https://github.com/hwz/chirp/tree/master/module-2)###
+###[Module 3 - Node and Express](https://github.com/hwz/chirp/tree/master/module-3)###
+###[Module 4 - MongoDB](https://github.com/hwz/chirp/tree/master/module-4)###
+###[Module 5 - Tying the app together in Angular](https://github.com/hwz/chirp/tree/master/module-5)###
+
