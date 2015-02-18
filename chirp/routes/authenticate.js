@@ -1,8 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-
-
 module.exports = function(passport){
 
 	//sends successful login state back to angular
@@ -34,4 +32,5 @@ module.exports = function(passport){
 	});
 
 	return router;
-};
+
+}
