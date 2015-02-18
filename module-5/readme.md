@@ -137,9 +137,6 @@ Since our API is a fully RESTful one, Angular has a service that we can use inst
 
 We can then simply use the `$resource` in our `postService` factory, pass our endpoint to `$resource`, and start performing CRUD operations. We can now use the `query` method to `GET` all of our posts instead. 
 
-We can also use the `save` function to `POST` our new chirp to our API. Since we want it to show up in our feed, we'll fetch the updated feed again in its callback function. We'll also reset the current `post` to be blank again.
-
-
 ```html
 <!--index.html-->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
@@ -153,15 +150,9 @@ var app = angular.module('chirpApp', ['ngRoute', 'ngResource']);
 
 app.controller('mainController', function($scope, postService){
   $scope.posts = postService.query();
-  $scope.newPost = "";
 
-  $scope.post = function() {
-    postService.save({created_by: $rootScope.current_user, text: $scope.newPost, created_at: Date.now()}, 
-    function(){
-      $scope.posts = postService.query();
-      $scope.newPost = "";  
-    });
-  };
+  ...
+
 });
 
 app.factory('postService', function($resource){
@@ -169,4 +160,37 @@ app.factory('postService', function($resource){
 });
 ```
 
+####Limiting posts
+
+Now that we have authenticated users, we should only let them post chirps. Let's use our `ng-show` directive like before to only display the chirp form if a user is logged in. While we're at it, we can also take out the input field for a username, and display the handle of the logged in user, `current_user`, instead.
+
+```html
+<!--main.html-->
+<div class="clearfix">
+  <form ng-Submit="post()" ng-show="authenticated">
+    <h4>{{current_user}} says</h4>
+    <textarea required class="form-control" maxlength="200" rows="3" placeholder="Say something" ng-model="newPost.text"></textarea>
+    <input class="btn submit-btn pull-right" type="submit" value="Chirp!" />
+  </form>
+</div>
+
+...
+
+```
+
+We'll then add `current_user` to `newPost` before we send it to the backend. We'll use the `save` function to `POST` our new chirp to our API. Since we want it to show up in our feed, we'll fetch the updated feed again in its callback function. We'll also reset the current `post` to be blank again. 
+
+```
+//chirpApp.js
+...
+$scope.post = function() {
+  $scope.newPost.created_by = $rootScope.current_user;
+  $scope.newPost.created_at = Date.now();
+  postService.save($scope.newPost}, function(){
+    $scope.posts = postService.query();
+    $scope.newPost = {created_by: '', text: '', created_at: ''};
+  });
+};
+...
+```
 We can use `postFactory` for so much more, whether it's deleting posts or finding a post by its ID. That won't be covered in the scope of this module, but it does show the power of `ngResource`. You can find out more about it in the [AngularJS Docs](https://docs.angularjs.org/api/ngResource)
