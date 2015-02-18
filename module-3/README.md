@@ -646,7 +646,7 @@ This will call the passport initialization and allow those functions to be calle
 
 ## Integrating Passport
 
- need to integrate it to some authentication routes.
+Now that we have our strategies implemented we need to integrate it to some authentication routes.
 
 ### Implementing the Auth Routes
 
