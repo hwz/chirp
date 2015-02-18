@@ -66,7 +66,7 @@ You'll get some output similar to below which will let you know that the MongoDB
 
 Now that we have our database running we should specify exactly what we're going to put into it. MongoDB data sort of looks like JSON objects. With data self enclosing as one unit. These units are called *documents* and are stored in *collections*.
 
-We will use [mongoose](http://npmjs.org/packages/mongoose) as our Object Data Mapper that will allow us to specify a schema for our Post and User objects. Don't worry MongoDB is flexible and allows us to change our schema t any time. Mongoose jus helps us write it down and enforce it.
+We will use [mongoose](http://npmjs.org/packages/mongoose) as our Object Data Mapper that will allow us to specify a schema for our Post and User objects. Don't worry MongoDB is flexible and allows us to change our schema at any time. Mongoose jus helps us write it down and enforce it.
 
 First we need to install mongoose:
 
@@ -312,7 +312,8 @@ passport.deserializeUser(function(id, done) {
 		done(err, user);
 	});
 });
-```#### Putting it all together
+```
+#### Putting it all together
 
 Putting everything together the full MongoDB implementation of the passport-init.js strategies is:
 
