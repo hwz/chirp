@@ -71,7 +71,7 @@ We will use [mongoose](http://npmjs.org/packages/mongoose) as our Object Data Ma
 First we need to install mongoose:
 
 ```bash
-nom install mongoose --save
+npm install mongoose --save
 ```
 
 Navigate to the [Start](./Start) directory and create a new folder called **models** and then a new file called **models.js**:
