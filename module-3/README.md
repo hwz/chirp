@@ -548,7 +548,7 @@ Finally the serialize and deserialize handlers need to be provided a unique ID f
 passport.serializeUser(function(user, done) {
 	console.log('serializing user:',user.username);
 	//return the unique id for the user
-	done(null, user.username);
+	return done(null, user.username);
 });
 
 //Desieralize user will call with the unique id provided by serializeuser
@@ -573,7 +573,7 @@ module.exports = function(passport){
 	passport.serializeUser(function(user, done) {
 		console.log('serializing user:',user.username);
 		//return the unique id for the user
-		done(null, user.username);
+		return done(null, user.username);
 	});
 
 	//Desieralize user will call with the unique id provided by serializeuser

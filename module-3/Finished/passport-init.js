@@ -9,7 +9,7 @@ module.exports = function(passport){
 	passport.serializeUser(function(user, done) {
 		console.log('serializing user:',user.username);
 		//return the unique id for the user
-		done(null, user.username);
+		return done(null, user.username);
 	});
 
 	//Desieralize user will call with the unique id provided by serializeuser
