@@ -24,7 +24,7 @@ module.exports = function(passport){
 		},
 		function(req, username, password, done) { 
 
-			if(users[username]){
+			if(!users[username]){
 				console.log('User Not Found with username '+username);
 				return done(null, false);
 			}
