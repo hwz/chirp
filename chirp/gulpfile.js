@@ -11,7 +11,9 @@ gulp.task('browserify', function() {
 
 gulp.task('compress', function() {
   return gulp.src('./public/javascripts/bin/app.js')
-              .pipe(uglify())
+              .pipe(uglify({
+                mangle: false
+              }))
               .pipe(gulp.dest('./public/javascripts/bin'))
 })
 

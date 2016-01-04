@@ -10,17 +10,7 @@ exports.mainController = function(postService, $scope, $rootScope, $http, $route
       $scope.newPost = { created_by: '', created_at: '' }
     })
   }
-
-    $scope.delete = function(idx) {
-      var post_to_delete = $scope.posts;
-    $http.delete('/api/posts/' + { id: post_to_delete.id })
-          .success(function(data) {
-            $scope.posts(idx, 1)
-          })
-  }
-
-}
-
+};
 
 exports.authController = function($scope, $http, $rootScope, $location) {
   $scope.user = { username: '', password: ''};
@@ -54,4 +44,4 @@ exports.authController = function($scope, $http, $rootScope, $location) {
           })
   }
 
-}
+};
