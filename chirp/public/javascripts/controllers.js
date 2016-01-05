@@ -1,16 +1,34 @@
-exports.mainController = function(postService, $scope, $rootScope, $http, $routeParams) {
-  $scope.posts = postService.query();
-  $scope.newPost = { created_by: '', text: '', created_at: '' };
+exports.mainController = function($posts, $scope, $rootScope, $http, $routeParams) {
+  $scope.posts = $posts;
+  $scope.newPost = { 
+    created_by: '', 
+    text: '', 
+    created_at: '' 
+  };
 
   $scope.post = function() {
     $scope.newPost.created_by = $rootScope.current_user;
     $scope.newPost.created_at = Date.now();
-    postService.save($scope.newPost, function() {
-      $scope.posts = postService.query();
-      $scope.newPost = { created_by: '', created_at: '' }
-    })
+    $http.post('/api/posts', $scope.newPost)
+          .success(function(data) {
+            $posts.loadPosts();
+            $scope.newPost = { created_by: '', created_at: ''}
+          }) 
   }
-};
+
+  $scope.delete = function($posts) {
+    $http.delete('/api/posts/' + $posts._id)
+          .success(function(data) {
+           // delete element from DOM
+            
+          })
+
+  }
+  
+
+
+
+};// End of mainController
 
 exports.authController = function($scope, $http, $rootScope, $location) {
   $scope.user = { username: '', password: ''};
