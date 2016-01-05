@@ -3,7 +3,7 @@ var directives = require('./directives');
 var services = require('./services');
 var _ = require('underscore');
 
-var components = angular.module('chirp-component', ['ngResource']);
+var components = angular.module('chirp-component', []);
 
 _.each(controllers, function(controller, name) {
 	components.controller(name, controller);
@@ -18,12 +18,12 @@ _.each(services, function(factory, name) {
 })
 
 var app = angular.module('chirpApp', ['chirp-component','ngRoute'])
-								.run(function($rootScope) {
+								.run(function($rootScope, $http) {
 	$rootScope.authenticated = false;
 	$rootScope.current_user = '';
 	
 	$rootScope.signout = function(){
-    	$http.get('auth/signout');
+    	$http.get('/auth/signout');
     	$rootScope.authenticated = false;
     	$rootScope.current_user = '';
 	};
