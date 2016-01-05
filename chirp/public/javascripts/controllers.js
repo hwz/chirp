@@ -16,11 +16,12 @@ exports.mainController = function($posts, $scope, $rootScope, $http, $routeParam
           }) 
   }
 
-  $scope.delete = function($posts) {
+  $scope.delete = function($posts, postIndex) {
+    var self = $(this)
     $http.delete('/api/posts/' + $posts._id)
           .success(function(data) {
            // delete element from DOM
-            
+           $scope.posts.results.splice(postIndex, 1)
           })
 
   }
