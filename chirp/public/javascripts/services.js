@@ -19,3 +19,31 @@ exports.$posts = function($http) {
 
   return p;
 }
+
+// exports.authenticationService = function($http, $q, $window) {
+//   var userInfo;
+
+//   function login(userName, password) {
+//     var deferred = $q.defer();
+
+//     $http.post('/auth/login', {
+//       userName: username,
+//       password: password
+//     })
+//     .then(function(result) {
+//       userInfo = {
+//         accessToken: result.data.access_token,
+//         userName: result.data.userName
+//       };
+//       $window.sessionStorage['userInfo'] = JSON.stringify(userInfo);
+//       deferred.resolve(userInfo);
+//     }, function(err) {
+//       deferred.reject(err)
+//     })
+//     return deferred.promise;
+//   }
+
+//   return {
+//     login: login
+//   }
+// };
