@@ -1,34 +1,34 @@
 exports.mainController = function($posts, $scope, $rootScope, $http, $routeParams) {
   $scope.posts = $posts;
+  $scope.error_message = '';
   $scope.newPost = { 
     created_by: '', 
     text: '', 
     created_at: '' 
   };
 
-  $scope.post = function() {
+  $scope.addPost = function() {
     $scope.newPost.created_by = $rootScope.current_user;
     $scope.newPost.created_at = Date.now();
     $http.post('/api/posts', $scope.newPost)
           .success(function(data) {
+            $scope.newPost = { created_by: '', created_at: ''};
             $posts.loadPosts();
-            $scope.newPost = { created_by: '', created_at: ''}
+          })
+          .error(function(data) {
+            $scope.error_message = 'Error'
           }) 
   }
 
-  $scope.delete = function($posts) {
-    $http.delete('/api/posts/' + $posts._id)
-          .success(function(data) {
-           // delete element from DOM
-            
-          })
-
-  }
+    $scope.delete = function($posts) {
+      $http.delete('/api/posts/' + $posts._id)
+            .success(function(data) {
+              var index = $scope.posts.results.indexOf(data);
+              $scope.posts.results.splice(index, 1)
+            })
+      }
+  };// End of mainController
   
-
-
-
-};// End of mainController
 
 exports.authController = function($scope, $http, $rootScope, $location) {
   $scope.user = { username: '', password: ''};
@@ -46,6 +46,7 @@ exports.authController = function($scope, $http, $rootScope, $location) {
           }
           
         })
+        
   }
 
   $scope.register = function() {
@@ -60,6 +61,7 @@ exports.authController = function($scope, $http, $rootScope, $location) {
             }
          
           })
-  }
-
+    }
 };
+
+

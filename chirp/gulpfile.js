@@ -14,7 +14,7 @@ gulp.task('compress', function() {
               .pipe(uglify({
                 mangle: false
               }))
-              .pipe(gulp.dest('./public/javascripts/bin'))
+              .pipe(gulp.dest('./public/javascripts/uglified'))
 })
 
 gulp.task('watch', function() {
