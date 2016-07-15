@@ -39,6 +39,6 @@ app.controller('authController', function($scope){
 	};
 
 	$scope.register = function(){
-		$scope.error_message = 'registeration request for ' + $scope.user.username;
+		$scope.error_message = 'registration request for ' + $scope.user.username;
 	};
 });
