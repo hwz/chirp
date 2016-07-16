@@ -1,18 +1,23 @@
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+var _ = require('underscore');
 
-var postSchema = new mongoose.Schema({
-	created_by: String,		//should be changed to ObjectId, ref "User"
-	created_at: {type: Date, default: Date.now},
-	text: String
-});
+module.exports = function(wagner) {
+  mongoose.connect('mongodb://localhost:27017/test');
 
-var userSchema = new mongoose.Schema({
-	username: String,
-	password: String, //hash created from password
-	created_at: {type: Date, default: Date.now}
-})
+  var User = mongoose.model('User', require('./userSchema'), 'users');
 
+  var Post = mongoose.model('Post', require('./postSchema'), 'posts');
 
-mongoose.model('Post', postSchema);
-mongoose.model('User', userSchema);
+  var model = {
+    User: User,
+    Post: Post
+  }
+
+  _.each(model, function(value, key) {
+    wagner.factory(key, function() {
+      return value;
+    });
+  });
+
+  return model;
+}
