@@ -215,13 +215,13 @@ router.route('/posts')
 	.post(function(req, res){
 
 		//TODO create a new post in the database
-		req.send({message:"TODO create a new post in the database"});
+		res.send({message:"TODO create a new post in the database"});
 	})
 
 	.get(function(req, res){
 
 		//TODO get all the posts in the database
-		req.send({message:"TODO get all the posts in the database"});
+		res.send({message:"TODO get all the posts in the database"});
 	})
 	
 
@@ -277,15 +277,15 @@ router.route('/posts/:id')
 	
 	//create
 	.put(function(req,res){
-		return res.send({message:'TODO modify an existing post by using param ' + req.param.id});
+		return res.send({message:'TODO modify an existing post by using param ' + req.params.id});
 	})
 
 	.get(function(req,res){
-		return res.send({message:'TODO get an existing post by using param ' + req.param.id});
+		return res.send({message:'TODO get an existing post by using param ' + req.params.id});
 	})
 
 	.delete(function(req,res){
-		return res.send({message:'TODO delete an existing post by using param ' + req.param.id})
+		return res.send({message:'TODO delete an existing post by using param ' + req.params.id})
 	});
 
 module.exports = router;
