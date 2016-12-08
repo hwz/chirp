@@ -84,7 +84,7 @@ rm users.js
 # remove index.js
 rm index.js
 # create authentication.js and api.js files
-touch authentication.js
+touch authenticate.js
 touch api.js
 ```
 
@@ -277,15 +277,15 @@ router.route('/posts/:id')
 	
 	//create
 	.put(function(req,res){
-		return res.send({message:'TODO modify an existing post by using param ' + req.param.id});
+		return res.send({message:'TODO modify an existing post by using param ' + req.params.id});
 	})
 
 	.get(function(req,res){
-		return res.send({message:'TODO get an existing post by using param ' + req.param.id});
+		return res.send({message:'TODO get an existing post by using param ' + req.params.id});
 	})
 
 	.delete(function(req,res){
-		return res.send({message:'TODO delete an existing post by using param ' + req.param.id})
+		return res.send({message:'TODO delete an existing post by using param ' + req.params.id})
 	});
 
 module.exports = router;
@@ -561,9 +561,6 @@ passport.deserializeUser(function(username, done) {
 Putting it all together our **passport-init.js** looks like:
 
 ```js
-var User = require('./models/models');
-var mongoose = require('mongoose');   
-var User = mongoose.model('User');
 var LocalStrategy   = require('passport-local').Strategy;
 var bCrypt = require('bcrypt-nodejs');
 users = {};
