@@ -232,21 +232,21 @@ module.exports = router;
 Now that we got our **/posts** api completed we need to create some apis for individual posts. We can do this by building off of our **/posts** path and adding an ID specific route  for an individual post. We use the ':' notation in our route name which tells Express that that particular part of the route will be treated as a parameter:
 
 ```js
-//api for all posts
-router.route('/posts')
+//api for a specific post
+router.route('/posts/:id')
 	
-	//create a new post
-	.post(function(req, res){
-
-		//TODO create a new post in the database
-		res.send({message:"TODO create a new post in the database"});
+	//create
+	.put(function(req,res){
+		return res.send({message:'TODO modify an existing post by using param ' + req.param.id});
 	})
 
-	.get(function(req, res){
-
-		//TODO get all the posts in the database
-		res.send({message:"TODO get all the posts in the database"});
+	.get(function(req,res){
+		return res.send({message:'TODO get an existing post by using param ' + req.param.id});
 	})
+
+	.delete(function(req,res){
+		return res.send({message:'TODO delete an existing post by using param ' + req.param.id})
+	});
 
 ```
 
