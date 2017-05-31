@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var LocalStrategy   = require('passport-local').Strategy;
 var bCrypt = require('bcrypt-nodejs');
+var fs = require('fs');
 
 module.exports = function(passport){
 
@@ -68,8 +69,7 @@ module.exports = function(passport){
 
 					// set the user's local credentials
 					newUser.username = username;
-					newUser.password = createHash(password);
-
+					newUser.password = createHash(password);					
 					// save the user
 					newUser.save(function(err) {
 						if (err){
