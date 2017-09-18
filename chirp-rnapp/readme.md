@@ -1,3 +1,1 @@
-Tutorial in Wiki Page
-
-[[Link Text|React-Native-Mobile-App]]
+Tutorial in [Wiki Page](https://github.com/dazdaz/chirp/wiki/React-Native-Mobile-App)
