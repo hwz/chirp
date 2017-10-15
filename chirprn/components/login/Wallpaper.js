@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import Dimensions from 'Dimensions';
 import {
 	StyleSheet,
-	Image,
+	ImageBackground,
 } from 'react-native';
 
 import bgSrc from 'res/wallpaper1.jpg';
@@ -10,9 +10,9 @@ import bgSrc from 'res/wallpaper1.jpg';
 export default class Wallpaper extends Component {
 	render() {
 		return (
-			<Image style={styles.picture} source={bgSrc}>
+			<ImageBackground style={styles.picture} source={bgSrc}>
 				{this.props.children}
-			</Image>
+			</ImageBackground>
 		);
 	}
 }
@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
 	picture: {
 		flex: 1,
 		width: null,
-		height: null,
-		resizeMode: 'cover',
+		height: null, 
 	},
 });

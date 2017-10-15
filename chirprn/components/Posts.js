@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ActivityIndicator, ListView, Text, View, RefreshControl } from 'react-native';
-import moment from 'moment'
+import moment from 'moment' // for datetime format
 
 var REQUEST_URL = 'https://chirp-app-saqlain.herokuapp.com/api/posts';
 
@@ -14,10 +14,10 @@ export default class Posts extends Component {
   }
 
   componentDidMount() {
-    return this.loadData()
+    return this._loadData();
   }
 
-  loadData() {
+  _loadData() {
     var func = fetch(REQUEST_URL)
       .then((response) => response.json())
       .then((responseJson) => {
@@ -41,10 +41,12 @@ export default class Posts extends Component {
     return moment(new Date(dateStr)).format('lll');
   }
 
+  
+
   _onRefresh() {
     if (!this.state.isLoading) {
       this.setState({ refreshing: true });
-      this.loadData().then(() => {
+      this._loadData().then(() => {
         this.setState({ refreshing: false });
       });
     }
@@ -60,7 +62,7 @@ export default class Posts extends Component {
     }
 
     return (
-      <View style={{ flex: 2, paddingTop: 20, paddingBottom: 20, alignItems: 'stretch' }}>
+      <View style={{ flex: 1, paddingTop: 0, paddingBottom: 20, alignItems: 'stretch' }}>
         <ListView
           dataSource={this.state.dataSource}
           refreshControl={
