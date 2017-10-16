@@ -1,0 +1,20 @@
+{
+  "presets": [
+    "react-native"
+  ],
+  "plugins": [
+    [
+      "babel-plugin-module-alias",
+      [
+        {
+          "src": "./resources",
+          "expose": "res"
+        },
+        {
+          "src": "./components/login",
+          "expose": "login"
+        },
+      ]
+    ]
+  ]
+}
