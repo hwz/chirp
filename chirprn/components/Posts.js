@@ -59,7 +59,7 @@ export default class Posts extends Component {
           <ActivityIndicator />
         </View>
       );
-    }
+    } 
 
     return (
       <View style={{ flex: 1, paddingTop: 0, paddingBottom: 20, alignItems: 'stretch' }}>
